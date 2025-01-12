@@ -4,11 +4,11 @@ const Home = () => {
 
   return (
       <div className="flex flex-col items-center justify-center">
-        <h1 className="text-3xl font-bold my-4">Bienvenue chez Ouest Fitnees Body</h1>
+        <h1 className="text-3xl font-bold my-4">Bienvenue chez Ouest Fitness Body</h1>
               <img
                   src={banniereUrl}
                   alt="OFB"
-                  className="w-1/2 border border-gray-300 rounded-lg shadow-lg"
+                  className=" border border-gray-300 rounded-lg shadow-lg"
               />
       </div>
   );

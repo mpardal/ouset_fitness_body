@@ -9,6 +9,10 @@ const nextConfig: NextConfig = {
                 port: "", // Leave empty unless a specific port is needed
                 pathname: "/v0/b/**", // Match the specific path structure for Firebase storage
             },
+            {
+                protocol: "https",
+                hostname: "pixabay.com", // Ajoutez le domaine autorisé ici
+            },
         ],
     },
 };

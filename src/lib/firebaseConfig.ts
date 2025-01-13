@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -16,3 +16,23 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const firestore = getFirestore(app);
+
+/**
+ * Fonction pour récupérer l'eventId depuis Firestore
+ * @returns L'eventId ou une erreur
+ */
+export const fetchEventIdFromFirestore = async (): Promise<string> => {
+    const docRef = doc(firestore, "events", "weezevent"); // Chemin vers le document
+    const docSnap = await getDoc(docRef);
+
+    if (!docSnap.exists()) {
+        throw new Error("Le document 'weezevent' n'existe pas dans la collection 'events'.");
+    }
+
+    const data = docSnap.data();
+    if (!data?.eventId) {
+        throw new Error("L'eventId est manquant dans le document 'weezevent'.");
+    }
+
+    return data.eventId; // Retourne l'eventId
+};

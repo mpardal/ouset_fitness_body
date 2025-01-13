@@ -46,20 +46,20 @@ export default function ExposantPage() {
         <div className="container mx-auto px-4 py-8">
             <button
                 onClick={() => router.back()}
-                className="mb-4 px-4 py-2 bg-blue-600 text-white rounded-md"
+                className="mb-4 px-6 py-2 bg-blue-600 text-white rounded-md"
             >
                 Retour
             </button>
 
             <div className="text-center">
+                <h1 className="text-2xl font-bold mt-4 py-5">{exposant.name}</h1>
                 <Image
                     src={exposant.imageUrl}
                     alt={exposant.name}
-                    className="mx-auto w-full max-w-[50%] sm:max-w-[90%] sm:px-4"
+                    className="mx-auto w-1/4 max-w-[50%] sm:max-w-[90%] sm:px-4"
                     width={200}
                     height={200}
                 />
-                <h1 className="text-2xl font-bold mt-4">{exposant.name}</h1>
                 <p className="mt-2 text-gray-700">{exposant.description}</p>
             </div>
         </div>

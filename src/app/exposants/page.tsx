@@ -12,7 +12,7 @@ type Exposant = {
     imageUrl: string;
 };
 
-export default function Page() {
+export default function ExposantsPage() {
     const [exposants, setExposants] = useState<Exposant[]>([]);
 
     useEffect(() => {
@@ -34,7 +34,7 @@ export default function Page() {
         <div className="container mx-auto px-4 py-8">
             <h1 className="text-2xl font-bold text-center mb-5">Exposants</h1>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 md:gap-4">
                 {exposants.map((exposant) => (
                     <Link href={`/exposants/${exposant.id}`} key={exposant.id}>
                         <div className="border border-gray-400 rounded-lg shadow-sm hover:shadow-md transition p-4 text-center cursor-pointer">

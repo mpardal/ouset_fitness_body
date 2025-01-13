@@ -23,14 +23,14 @@ export async function POST(request: NextRequest) {
         const transporter = nodemailer.createTransport({
             service: "gmail",
             auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS,
+                user: process.env.NEXT_PUBLIC_EMAIL_USER,
+                pass: process.env.NEXT_PUBLIC_EMAIL_PASS,
             },
         });
 
         await transporter.sendMail({
-            from: process.env.EMAIL_FROM,
-            to: process.env.EMAIL_TO,
+            from: process.env.NEXT_PUBLIC_EMAIL_FROM,
+            to: process.env.NEXT_PUBLIC_EMAIL_TO,
             subject: "Nouveau formulaire de contact : `${raison}`",
             text: `
 Nom : ${nom} - Prénom : ${prenom} (Email : ${email})

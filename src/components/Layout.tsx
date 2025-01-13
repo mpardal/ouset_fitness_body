@@ -75,14 +75,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </header>
 
             {/* Contenu principal */}
-            <main className="flex-grow bg-white md:bg-blue-200 px-10 py-5 md:px-0 md:mx-auto md:container">
+            <main className="bg-blue-200 px-2 py-5 md:px-0 mx-auto md:container">
                 {children}
             </main>
 
             {/* Footer ou menu mobile selon l'écran */}
             <footer>
                 {/* Footer pour les grands écrans */}
-                <div className="hidden md:block bg-blue-100 text-white py-4 text-center">
+                <div className="hidden md:block bg-blue-100 text-white py-4 text-center bottom-0 fixed w-full">
                     © 2025 Ouest Fitness Body
                 </div>
             </footer>

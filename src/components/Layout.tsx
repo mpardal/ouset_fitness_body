@@ -28,7 +28,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                             </Link>
                         </li>
                         <li>
-                            <Link href="/billing" className="flex gap-4 items-center hover:text-blue-500">
+                            <Link href="/billetterie" className="flex gap-4 items-center hover:text-blue-500">
                                 <TicketIcon className="h-6 w-6 mb-1" />
                                 <span>Billetterie</span>
                             </Link>
@@ -61,7 +61,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                             </Link>
                         </li>
                         <li>
-                            <Link href="/billing" className="flex flex-col items-center hover:text-blue-500">
+                            <Link href="/billetterie" className="flex flex-col items-center hover:text-blue-500">
                                 <TicketIcon className="h-6 w-6 mb-1" />
                             </Link>
                         </li>

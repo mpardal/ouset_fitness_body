@@ -21,7 +21,7 @@ export const firestore = getFirestore(app);
  * Fonction pour récupérer l'eventId depuis Firestore
  * @returns L'eventId ou une erreur
  */
-export const fetchEventIdFromFirestore = async (): Promise<string> => {
+export const fetchEventIdFromFirestore = async (): Promise<number> => {
     const docRef = doc(firestore, "events", "weezevent"); // Chemin vers le document
     const docSnap = await getDoc(docRef);
 
@@ -33,6 +33,6 @@ export const fetchEventIdFromFirestore = async (): Promise<string> => {
     if (!data?.eventId) {
         throw new Error("L'eventId est manquant dans le document 'weezevent'.");
     }
-
+console.log(data)
     return data.eventId; // Retourne l'eventId
 };

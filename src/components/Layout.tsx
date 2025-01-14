@@ -3,11 +3,11 @@ import Link from "next/link";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     return (
-        <div className="min-h-screen flex flex-col bg-blue-200">
+        <div className="min-h-screen flex flex-col bg-gray-50">
             {/* Menu responsive */}
             <header>
                 {/* Menu en haut pour les grands écrans */}
-                <nav className="hidden md:flex justify-center shadow-md top-0 left-0 w-full bg-blue-100">
+                <nav className="hidden md:flex justify-center shadow-md top-0 left-0 w-full bg-gray-100">
                     <ul className="flex space-x-28 xl:space-x-32 py-4 text-gray-700">
                         <li>
                             <Link href="/" className="flex gap-4 items-center hover:text-blue-500">
@@ -43,7 +43,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </nav>
 
                 {/* Menu mobile en bas pour les petits écrans */}
-                <nav className="md:hidden fixed bottom-0 left-0 w-full bg-blue-100 border-t border-gray-200 z-10">
+                <nav className="md:hidden fixed bottom-0 left-0 w-full bg-gray-100 border-t border-gray-200 z-10">
                     <ul className="flex justify-around py-4 text-gray-700">
                         <li>
                             <Link href="/" className="flex flex-col items-center hover:text-blue-500">
@@ -75,14 +75,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </header>
 
             {/* Contenu principal */}
-            <main className="bg-blue-200 px-2 py-5 md:px-0 mx-auto md:container">
+            <main className="px-2 py-5 md:px-0 mx-auto md:container">
                 {children}
             </main>
 
             {/* Footer ou menu mobile selon l'écran */}
             <footer>
                 {/* Footer pour les grands écrans */}
-                <div className="hidden md:block bg-blue-100 text-white py-4 text-center bottom-0 fixed w-full">
+                <div className="hidden md:block bg-gray-100 text-white py-4 text-center bottom-0 fixed w-full">
                     © 2025 Ouest Fitness Body
                 </div>
             </footer>

@@ -1,12 +1,12 @@
 const WEEZEVENT_API_URL = "https://api.weezevent.com";
-const WEEZEVENT_API_KEY = process.env.NEXT_PUBLIC_WEEZEVENT_API_KEY;
+const WEEZEVENT_API_KEY = process.env.WEEZEVENT_API_KEY;
 
 /**
  * Récupérer les détails d'un événement via l'API Weezevent
  * @param eventId - L'ID de l'événement
  * @returns Les données de l'événement
  */
-export const fetchEventById = async (eventId: string) => {
+export const fetchEventById = async (eventId: number) => {
     const response = await fetch(
         `${WEEZEVENT_API_URL}/events/${eventId}?api_key=${WEEZEVENT_API_KEY}`
     );

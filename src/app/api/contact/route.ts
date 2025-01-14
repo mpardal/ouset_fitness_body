@@ -19,26 +19,34 @@ export async function POST(request: NextRequest) {
             date: new Date().toISOString(),
         });
 
-        // 2. Envoi d'un e-mail avec Nodemailer
+        // Configurer Nodemailer avec OAuth2
         const transporter = nodemailer.createTransport({
             service: "gmail",
             auth: {
-                user: process.env.NEXT_PUBLIC_EMAIL_USER,
-                pass: process.env.NEXT_PUBLIC_EMAIL_PASS,
+                type: "OAuth2",
+                user: process.env.EMAIL_USER, // Adresse Gmail utilisée pour envoyer les e-mails
+                clientId: process.env.OAUTH_CLIENT_ID, // Client ID OAuth2
+                clientSecret: process.env.OAUTH_CLIENT_SECRET, // Client Secret OAuth2
+                refreshToken: process.env.OAUTH_REFRESH_TOKEN, // Refresh Token OAuth2
             },
         });
 
-        await transporter.sendMail({
-            from: process.env.NEXT_PUBLIC_EMAIL_FROM,
-            to: process.env.NEXT_PUBLIC_EMAIL_TO,
-            subject: "Nouveau formulaire de contact : `${raison}`",
+        // Préparer les données de l'e-mail
+        const mailOptions = {
+            from: process.env.EMAIL_FROM, // Adresse de l'expéditeur
+            to: "ouesstfitnessbody@gmail.com", // Adresse de destination
+            subject: `Nouveau formulaire de contact : ${raison}`,
             text: `
 Nom : ${nom} - Prénom : ${prenom} (Email : ${email})
 Raison : ${raison}
 
 Message : ${message}
             `,
-        });
+        };
+
+        // Envoyer l'e-mail
+        await transporter.sendMail(mailOptions);
+
 
         return NextResponse.json({ success: true, docId: docRef.id });
     } catch (error: unknown) {

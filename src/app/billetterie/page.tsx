@@ -13,7 +13,7 @@ export default async function BilletteriePage() {
                     href="https://weezevent.com/?c=sys_widget"
                     className="weezevent-widget-integration"
                     data-src={`https://widget.weezevent.com/ticket/E${eventId}/?code=54142&locale=fr-FR&width_auto=0&color_primary=2a54cf`}
-                    data-width="800"
+                    data-width={800}
                     data-height="2000"
                     data-id={eventId}
                     data-resize="0"

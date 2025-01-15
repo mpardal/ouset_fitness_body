@@ -22,12 +22,12 @@ export default function ContactForm() {
         setStatus("Envoi en cours...");
 
         try {
-            const response = await fetch("/api/contact", {
+            const response = await fetch("/api/contact/route.ts", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
             });
-console.log(response)
+
             if (response.ok) {
                 setFormData({ nom: "", prenom: "", email: "", raison: "", message: "" });
                 setStatus("Message envoyé avec succès !");
@@ -43,7 +43,7 @@ console.log(response)
     return (
         <div className="flex items-center justify-center h-screen w-full">
             {/* Formulaire en plein écran sur mobile */}
-            <div className="w-full max-w-md p-4 bg-gray-50 shadow-lg rounded md:max-w-lg mb-5">
+            <div className="w-full max-w-md p-4 bg-gray-50 shadow-lg rounded md:max-w-xl mb-5">
                 <h1 className="text-2xl font-bold mb-4 text-center">Formulaire de contact</h1>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">

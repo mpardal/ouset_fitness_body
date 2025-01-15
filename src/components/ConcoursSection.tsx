@@ -4,12 +4,14 @@ type SectionProps = {
     imageUrl: string;
     title: string;
     textPosition: "left" | "right";
+    text: string
+    text2: null|string
 };
 
-const ConcoursSection: React.FC<SectionProps> = ({ imageUrl, title, textPosition }) => {
+const ConcoursSection: React.FC<SectionProps> = ({ imageUrl, title, textPosition, text, text2 }) => {
     return (
         <div
-            className="relative w-full h-[500px] flex items-center"
+            className="relative w-full h-[500px] flex items-center my-2"
             style={{ backgroundImage: `url(${imageUrl})`, backgroundSize: "cover", backgroundPosition: "center" }}
         >
             <div
@@ -23,7 +25,11 @@ const ConcoursSection: React.FC<SectionProps> = ({ imageUrl, title, textPosition
                 <div className="bg-white bg-opacity-80 p-6 md:p-12 rounded-lg text-gray-900">
                     <h2 className="text-3xl md:text-5xl font-bold mb-4">{title}</h2>
                     <p className="text-lg">
-                        Participez dès maintenant à nos concours et repoussez vos limites pour gagner des récompenses incroyables !
+                        {text}
+                    </p>
+                    <br/>
+                    <p className="text-lg italic">
+                        {text2}
                     </p>
                 </div>
             </div>

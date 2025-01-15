@@ -56,7 +56,7 @@ export default function ExposantsPage() {
 
     return (
         <div className="container mx-auto px-4 py-8">
-            <h1 className="text-2xl font-bold text-center mb-5">Exposants</h1>
+            <h1 className="text-2xl font-bold mb-5 text-black text-center">Exposants</h1>
 
             {/* Bouton et Barre de Recherche */}
             <div className="mb-6 text-center">

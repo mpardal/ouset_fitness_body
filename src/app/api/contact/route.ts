@@ -1,8 +1,7 @@
-// src/app/api/contact/route.ts
 import { NextRequest, NextResponse } from "next/server";
+import nodemailer from "nodemailer";
 import { firestore } from "@/lib/firebaseConfig";
 import { collection, addDoc } from "firebase/firestore";
-import nodemailer from "nodemailer";
 
 export async function POST(request: NextRequest) {
     try {
@@ -19,40 +18,43 @@ export async function POST(request: NextRequest) {
             date: new Date().toISOString(),
         });
 
-        // Configurer Nodemailer avec OAuth2
         const transporter = nodemailer.createTransport({
-            service: "gmail",
+            host: process.env.EMAIL_HOST,
+            port: parseInt(process.env.EMAIL_PORT || "465"),
+            secure: true,
             auth: {
-                type: "OAuth2",
-                user: process.env.EMAIL_USER, // Adresse Gmail utilisée pour envoyer les e-mails
-                clientId: process.env.OAUTH_CLIENT_ID, // Client ID OAuth2
-                clientSecret: process.env.OAUTH_CLIENT_SECRET, // Client Secret OAuth2
-                refreshToken: process.env.OAUTH_REFRESH_TOKEN, // Refresh Token OAuth2
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASS,
             },
         });
 
         // Préparer les données de l'e-mail
         const mailOptions = {
-            from: process.env.EMAIL_FROM, // Adresse de l'expéditeur
-            to: "ouesstfitnessbody@gmail.com", // Adresse de destination
+            from: process.env.EMAIL_FROM, // Adresse expéditeur
+            to: process.env.EMAIL_TO, // Adresse destinataire
             subject: `Nouveau formulaire de contact : ${raison}`,
             text: `
-Nom : ${nom} - Prénom : ${prenom} (Email : ${email})
+Nom : ${nom}
+Prénom : ${prenom}
+Email : ${email}
 Raison : ${raison}
 
-Message : ${message}
+Message : 
+${message}
             `,
         };
 
         // Envoyer l'e-mail
         await transporter.sendMail(mailOptions);
 
-
         return NextResponse.json({ success: true, docId: docRef.id });
     } catch (error: unknown) {
         if (error instanceof Error) {
-            console.error(error.message);
-            return NextResponse.json({success: false, error: error.message}, {status: 500});
+            console.error("Erreur lors de l'envoi de l'e-mail :", error.message);
+            return NextResponse.json(
+                { success: false, error: error.message },
+                { status: 500 }
+            );
         }
     }
 }

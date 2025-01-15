@@ -33,6 +33,5 @@ export const fetchEventIdFromFirestore = async (): Promise<number> => {
     if (!data?.eventId) {
         throw new Error("L'eventId est manquant dans le document 'weezevent'.");
     }
-console.log(data)
     return data.eventId; // Retourne l'eventId
 };

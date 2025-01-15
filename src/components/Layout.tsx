@@ -116,7 +116,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             {/* Footer ou menu mobile selon l'écran */}
             <footer>
                 {/* Footer pour les grands écrans */}
-                <div className="hidden md:block bg-gray-100 text-white py-4 text-center bottom-0 fixed w-full">
+                <div className="hidden md:block bg-gray-100 text-black py-4 text-center bottom-0 fixed w-full">
                     © 2025 Ouest Fitness Body
                 </div>
             </footer>

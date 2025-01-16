@@ -56,7 +56,7 @@ export default function ExposantsPage() {
 
     return (
         <div className="container mx-auto px-4 py-8">
-            <h1 className="text-2xl font-bold mb-5 text-black text-center">Exposants</h1>
+            <h1 className="text-3xl font-bold py-4 text-black text-center">Les exposants</h1>
 
             {/* Bouton et Barre de Recherche */}
             <div className="mb-6 text-center">
@@ -99,7 +99,8 @@ export default function ExposantsPage() {
                 {filteredExposants.length > 0 ? (
                     filteredExposants.map((exposant) => (
                         <Link href={`/exposants/${exposant.id}`} key={exposant.id}>
-                            <div className="border border-gray-400 rounded-lg shadow-sm hover:shadow-md transition p-4 text-center cursor-pointer">
+                            <div
+                                className="border border-gray-400 rounded-lg shadow-sm hover:shadow-md transition p-4 text-center cursor-pointer">
                                 <Image
                                     src={exposant.imageUrl}
                                     alt={exposant.name}

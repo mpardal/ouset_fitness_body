@@ -8,11 +8,11 @@ const Home = () => {
           <Image
               src={IMAGES.banniere}
               alt="OFB"
-              className="mx-auto max-w-[70%] md:max-w-[80%] md:px-4"
+              className="max-w-[90%] md:max-w-[80%] md:px-4"
               width={800}
               height={800}
           />
-          <div className="my-6 max-w-[70%] md:max-w-[80%] md:px-4 text-center font-semibold">
+          <div className="my-6 max-w-[70%] md:max-w-[80%] md:px-4 text-center font-semibold hidden md:block">
               <p>
                   LE OUEST FITNESS & BODY EXPO EST UN ÉVÉNEMENT QUI A POUR BUT DE RÉUNIR TOUS LES AMATEURS DE FITNESS,
                   MUSCULATION, CROSSFIT, SPORT SANTÉ DE L&#39;OUEST ET AUSSI LES PROFESSIONNELS DE CE SECTEUR.

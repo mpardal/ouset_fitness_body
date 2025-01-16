@@ -8,6 +8,7 @@ export default async function BilletteriePage() {
 
         return (
             <div>
+                <h1 className="text-3xl font-bold py-4 text-black text-center">La billetterie</h1>
                 <div className="min-h-screen bg-gray-50 py-10 px-5 m-10 hidden md:block">
                     <a
                         title="Logiciel billetterie en ligne"
@@ -40,7 +41,7 @@ export default async function BilletteriePage() {
                         className="weezevent-widget-integration"
                         data-src={`https://widget.weezevent.com/ticket/E${eventId}/?code=54142&locale=fr-FR&width_auto=0&color_primary=2a54cf`}
                         data-width={300}
-                        data-height={1000}
+                        data-height={500}
                         data-id={eventId}
                         data-resize="0"
                         data-width_auto="0"

@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     return (
-        <div className="min-h-screen flex flex-col bg-gray-100 text-black">
+        <div className="min-h-screen flex flex-col bg-white text-black">
             {/* Menu responsive */}
             <header>
                 {/* Menu en haut pour les grands écrans */}
@@ -109,7 +109,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </header>
 
             {/* Contenu principal */}
-            <main className="px-2 py-5 md:px-0 mx-auto md:container mb-10">
+            <main className="py-5 md:px-0 mx-auto container mb-10">
                 {children}
             </main>
 

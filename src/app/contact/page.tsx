@@ -44,7 +44,7 @@ export default function ContactForm() {
         <div className="flex items-center justify-center h-screen w-full">
             {/* Formulaire en plein écran sur mobile */}
             <div className="w-full max-w-md p-4 bg-gray-50 shadow-lg rounded md:max-w-xl">
-                <h1 className="text-2xl font-bold mb-4 text-black text-center">Formulaire de contact</h1>
+                <h1 className="text-3xl font-bold py-4 text-black text-center">Formulaire de contact</h1>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
                         <label htmlFor="nom" className="block text-gray-700 font-bold mb-2">Nom :</label>

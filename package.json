@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
-    "@sendgrid/mail": "^8.1.4",
     "@types/nodemailer": "^6.4.17",
     "@vercel/analytics": "^1.4.1",
     "firebase": "^11.1.0",

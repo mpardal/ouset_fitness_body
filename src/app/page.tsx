@@ -37,6 +37,13 @@ const Home = () => {
               </p>
               <br/>
           </div>
+          <Image
+              src={IMAGES.explication}
+              alt="explication OFB"
+              className="max-w-[90%] md:max-w-[80%] md:px-4 md:hidden block"
+              width={800}
+              height={800}
+          />
       </div>
   );
 };

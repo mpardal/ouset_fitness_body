@@ -133,18 +133,18 @@ export default function DashboardPage() {
                     <input
                         type="text"
                         placeholder="Nom de l'exposant"
-                        className="p-2 border rounded"
+                        className="p-2 border rounded text-black"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                     />
                     <input
                         type="file"
-                        className="p-2 border rounded"
+                        className="p-2 border rounded bg-[#16398d]"
                         onChange={(e) => setImage(e.target.files?.[0] || null)}
                     />
                     <textarea
                         placeholder="Description"
-                        className="p-2 border rounded col-span-1 md:col-span-2"
+                        className="p-2 border rounded col-span-1 md:col-span-2 text-black"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                     />
@@ -161,7 +161,7 @@ export default function DashboardPage() {
                 <div className="flex gap-4">
                     <button
                         type="submit"
-                        className="bg-green-500 text-white px-4 py-2 rounded mt-4"
+                        className="bg-blue-600 text-white px-4 py-2 rounded mt-4"
                         disabled={loading}
                     >
                         {loading ? 'Enregistrement...' : editingId ? 'Modifier' : 'Ajouter'}
@@ -180,21 +180,23 @@ export default function DashboardPage() {
 
             <ul>
                 {exposants.map((exposant) => (
-                    <li key={exposant.id} className="mb-4 p-4 border rounded flex justify-between items-center">
+                    <li key={exposant.id}
+                        className="mb-4 p-4 border rounded flex justify-between items-center bg-[#16398d]"
+                    >
                         <div>
-                            <h2 className="text-xl font-bold">{exposant.name}</h2>
-                            <p>{exposant.description}</p>
+                            <h2 className="text-xl font-bold text-gray-200">{exposant.name}</h2>
+                            <p className="text-gray-200">{exposant.description}</p>
                         </div>
                         <div className="flex gap-4">
                             <button
                                 onClick={() => handleEditExposant(exposant.id)}
-                                className="bg-blue-500 text-white px-4 py-2 rounded"
+                                className="bg-green-700 text-white px-4 py-2 rounded"
                             >
                                 Modifier
                             </button>
                             <button
                                 onClick={() => handleDeleteExposant(exposant.id)}
-                                className="bg-red-500 text-white px-4 py-2 rounded"
+                                className="bg-red-600 text-white px-4 py-2 rounded"
                             >
                                 Supprimer
                             </button>

@@ -36,24 +36,24 @@ export default function LoginPage() {
 
     return (
         <div className="flex min-h-screen items-center justify-center">
-            <form onSubmit={handleLogin} className="bg-gray-200 p-6 rounded shadow-md w-full">
+            <form onSubmit={handleLogin} className="bg-gray-50 p-6 rounded shadow-md w-full">
                 <h1 className="text-3xl font-bold py-4 text-black text-center">Connexion</h1>
                 {error && <p className="text-red-500 mb-4">{error}</p>}
                 <input
                     type="email"
                     placeholder="Email"
-                    className="w-full p-2 mb-4 border rounded"
+                    className="w-full p-2 mb-4 border rounded text-black"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <input
                     type="password"
                     placeholder="Mot de passe"
-                    className="w-full p-2 mb-4 border rounded"
+                    className="w-full p-2 mb-4 border rounded text-black"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <button type="submit" className="bg-[#70a9f7] text-white px-4 py-2 rounded w-full">
+                <button type="submit" className="bg-[#16398d] text-gray-200  px-4 py-2 rounded w-full">
                     Se connecter
                 </button>
             </form>

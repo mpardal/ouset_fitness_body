@@ -65,7 +65,7 @@ export default function ExposantPage() {
             </button>
 
             <div className="text-center">
-                <h1 className="text-2xl font-bold mt-4 py-5 text-black text-center">{exposant.name}</h1>
+                <h1 className="text-2xl font-bold mt-4 py-5 text-white text-center">{exposant.name}</h1>
                 <Image
                     src={exposant.imageUrl}
                     alt={exposant.name}

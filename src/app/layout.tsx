@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
 import { Analytics } from '@vercel/analytics/react';
 import "../styles/globals.css";
+import {IMAGES} from "@/constants/images";
 import Layout from "@/components/Layout";
 
 export const metadata: Metadata = {
     title: "Ouest Fitness Body",
     description: "Événement de sport, salon de fitness, Nantes, Loire Atlantique",
+    icons: {
+        icon: IMAGES.logo, // Chemin vers votre favicon dans /public
+    },
     openGraph: {
         title: "Ouest Fitness Body - Événement Sport et Fitness",
         description:

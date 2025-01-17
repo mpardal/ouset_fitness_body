@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -11,6 +11,7 @@ type Exposant = {
     name: string;
     imageUrl: string;
     description: string;
+    slug: string; // Ajouter le champ slug
 };
 
 export default function ExposantsPage() {
@@ -29,7 +30,8 @@ export default function ExposantsPage() {
                     id: doc.id,
                     name: doc.data().name,
                     imageUrl: doc.data().imageUrl,
-                    description: doc.data().description, // Assurez-vous que ce champ est bien dans Firestore
+                    description: doc.data().description,
+                    slug: doc.data().slug, // Récupérer le slug depuis Firestore
                 }));
                 setExposants(data);
                 setFilteredExposants(data); // Initialiser avec les exposants triés
@@ -41,7 +43,6 @@ export default function ExposantsPage() {
         fetchExposants();
     }, []);
 
-    // Filtrer les exposants en fonction de la recherche
     const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value.toLowerCase();
         setSearchTerm(value);
@@ -98,17 +99,20 @@ export default function ExposantsPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 md:gap-4">
                 {filteredExposants.length > 0 ? (
                     filteredExposants.map((exposant) => (
-                        <Link href={`/exposants/${exposant.id}`} key={exposant.id}>
+                        <Link href={`/exposants/${exposant.slug}`} key={exposant.id}>
                             <div
-                                className="border border-gray-400 rounded-lg shadow-sm hover:shadow-md transition p-4 text-center cursor-pointer">
-                                <Image
-                                    src={exposant.imageUrl}
-                                    alt={exposant.name}
-                                    width={200}
-                                    height={200}
-                                    className="mx-auto rounded-lg"
-                                />
-                                <p className="mt-2 text-lg font-bold">{exposant.name}</p>
+                                className="flex flex-col items-center border border-gray-400 rounded-lg shadow-sm hover:shadow-md transition p-4
+    text-center cursor-pointer h-full">
+                                <div className="w-40 h-40 flex items-center justify-center">
+                                    <Image
+                                        src={exposant.imageUrl}
+                                        alt={exposant.name}
+                                        width={150}
+                                        height={150}
+                                        className="rounded-lg object-cover w-full h-full"
+                                    />
+                                </div>
+                                <p className="mt-4 text-lg font-bold">{exposant.name}</p>
                                 <p className="text-gray-600 text-sm">{exposant.description}</p>
                             </div>
                         </Link>

@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
 import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 import Image from "next/image";
-import { doc, getDoc } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { firestore } from "@/lib/firebaseConfig";
 
 type Exposant = {
@@ -11,32 +11,45 @@ type Exposant = {
     name: string;
     imageUrl: string;
     description: string;
+    slug: string;
 };
 
 export default function ExposantPage() {
     const router = useRouter();
-    const params = useParams(); // Utilisez `useParams` pour accéder à `params`
+    const { slug } = useParams(); // Utilisez `useParams` pour récupérer le slug
     const [exposant, setExposant] = useState<Exposant | null>(null);
 
     useEffect(() => {
-        const fetchExposant = async () => {
-            if (!params?.id) return; // Vérifiez que l'ID est disponible
-            const exposantRef = doc(firestore, "exposants", params.id as string);
-            const snapshot = await getDoc(exposantRef);
-            if (snapshot.exists()) {
-                setExposant({
-                    id: snapshot.id,
-                    name: snapshot.data().name,
-                    imageUrl: snapshot.data().imageUrl,
-                    description: snapshot.data().description,
-                });
-            } else {
-                console.error("Exposant non trouvé");
+        const fetchExposantBySlug = async () => {
+            if (!slug) return;
+
+            try {
+                // Recherche l'exposant par son slug
+                const exposantsCollection = collection(firestore, "exposants");
+                const snapshot = await getDocs(exposantsCollection);
+
+                const exposantDoc = snapshot.docs.find(
+                    (doc) => doc.data().slug === slug
+                );
+
+                if (exposantDoc) {
+                    setExposant({
+                        id: exposantDoc.id,
+                        name: exposantDoc.data().name,
+                        imageUrl: exposantDoc.data().imageUrl,
+                        description: exposantDoc.data().description,
+                        slug: exposantDoc.data().slug,
+                    });
+                } else {
+                    console.error("Exposant non trouvé");
+                }
+            } catch (error) {
+                console.error("Erreur lors de la récupération de l'exposant :", error);
             }
         };
 
-        fetchExposant();
-    }, [params?.id]);
+        fetchExposantBySlug();
+    }, [slug]);
 
     if (!exposant) {
         return <p>Chargement...</p>;

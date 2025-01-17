@@ -1,16 +1,53 @@
-import { HomeIcon, TrophyIcon, UserIcon, InformationCircleIcon, TicketIcon } from "@heroicons/react/24/outline";
+'use client';
+
+import {
+    HomeIcon,
+    TrophyIcon,
+    UserIcon,
+    InformationCircleIcon,
+    TicketIcon,
+    UserCircleIcon, XCircleIcon, ListBulletIcon
+} from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { useEffect, useState } from 'react';
 import {IMAGES} from "@/constants/images";
 import Image from "next/image";
+import React from "react";
+import { signOut, onAuthStateChanged } from 'firebase/auth';
+import { auth } from '@/lib/firebaseConfig';
+import { useRouter } from 'next/navigation';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const router = useRouter();
+
+    useEffect(() => {
+        // Vérifier si l'utilisateur est connecté
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            setIsAuthenticated(!!user);
+        });
+
+        return () => unsubscribe();
+    }, []);
+
+    const handleLogout = async () => {
+        try {
+            await signOut(auth); // Déconnecter l'utilisateur
+            router.push('/');
+            setIsAuthenticated(false);
+        } catch (error) {
+            console.error('Erreur lors de la déconnexion :', error);
+        }
+    };
+
     return (
         <div className="min-h-screen flex flex-col bg-white text-black">
             {/* Menu responsive */}
             <header>
                 {/* Menu en haut pour les grands écrans */}
                 <nav
-                    className="hidden md:flex justify-between items-center shadow-md top-0 left-0 w-full bg-[#f7f7f7] px-8">
+                    className="hidden md:flex justify-between items-center shadow-md top-0 left-0 w-full bg-gray-200 px-8">
                     {/* Logo */}
                     <div className="flex items-center space-x-2 rounded">
                         <Image
@@ -56,16 +93,30 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                         </li>
                     </ul>
 
-                    {/* Profil Icon */}
-                    {/*<div>
-                        <button className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-200 hover:bg-gray-300">
-                            <UserIcon className="h-6 w-6 text-gray-700" />
-                        </button>
-                    </div>*/}
+                    {/* Profil Section */}
+                    <div>
+                        {isAuthenticated ? (
+                            <div className="flex items-center gap-4">
+                                {/* Bouton Dashboard */}
+                                <Link href="/dashboard" className="flex gap-2 items-center hover:text-blue-500">
+                                    <ListBulletIcon className="h-6 w-6"/>
+                                    <span>Dashboard</span>
+                                </Link>
+                                <XCircleIcon className="h-6 w-6 text-red-700 cursor-pointer" onClick={handleLogout} />
+                            </div>
+                        ) : (
+                            // Bouton Connexion
+                            <button className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-200 hover:bg-gray-300">
+                                <Link href="/login" className="flex gap-2 items-center hover:text-blue-500">
+                                    <UserCircleIcon className="h-6 w-6 text-gray-700" />
+                                </Link>
+                            </button>
+                        )}
+                    </div>
                 </nav>
 
                 {/* Menu mobile en bas pour les petits écrans */}
-                <nav className="md:hidden fixed bottom-0 left-0 w-full bg-gray-100 border-t border-gray-200 z-20">
+                <nav className="md:hidden fixed bottom-0 left-0 w-full bg-gray-200 border-t border-gray-200 z-20">
                     <ul className="flex justify-around py-4 text-gray-700">
                         <li>
                             <Link href="/" className="flex flex-col items-center hover:text-blue-500">

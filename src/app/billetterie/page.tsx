@@ -8,7 +8,7 @@ export default async function BilletteriePage() {
 
         return (
             <div>
-                <h1 className="text-3xl font-bold py-4 text-black text-center">La billetterie</h1>
+                <h1 className="text-3xl font-bold py-4 text-white text-center">La billetterie</h1>
                 <div className="min-h-screen bg-gray-50 py-10 px-5 m-10 hidden md:block">
                     <a
                         title="Logiciel billetterie en ligne"

@@ -22,7 +22,7 @@ const MapComponent = () => {
         <MapContainer
             key={mapKey} // Ajoutez une clé basée sur les coordonnées
             center={position}
-            zoom={13}
+            zoom={15}
             scrollWheelZoom={false}
             style={{ height: "100%", width: "70%" }}
         >

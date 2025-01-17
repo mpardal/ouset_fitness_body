@@ -1,8 +1,18 @@
 @import "leaflet/dist/leaflet.css";
+@import "@fontsource/poppins"; /* Police pour les titres */
+@import "@fontsource/merriweather"; /* Police pour le corps */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body, p, li, span {
+  font-family: 'Merriweather', serif;
+}
+
+h1, h2, h3, h4, h5, h6, div {
+  font-family: 'Poppins', sans-serif;
+}
 
 :root {
   --background: #ffffff;

@@ -4,7 +4,7 @@ import {IMAGES} from "@/constants/images";
 export default function ConcoursPage() {
     return (
         <div className="flex flex-col items-center justify-center">
-                <h1 className="text-3xl font-bold py-4 text-black text-center">Les concours ludique</h1>
+                <h1 className="text-3xl font-bold py-4 text-white text-center">Les concours ludique</h1>
                 <ConcoursSection
                     imageUrl={IMAGES.bras_de_fer}
                     title="Bras de Fer"

@@ -62,7 +62,7 @@ const Home = () => {
                 <Image
                     src={IMAGES.banniere}
                     alt="OFB"
-                    className="max-w-[90%] md:max-w-[80%] md:px-4"
+                    className="max-w-[90%] md:max-w-[80%] md:px-4 border-gray-50 border-2"
                     width={800}
                     height={800}
                 />
@@ -70,7 +70,7 @@ const Home = () => {
                 <Image
                     src={IMAGES.explication}
                     alt="Explication OFB"
-                    className="max-w-[90%] md:max-w-[80%] md:px-4 md:hidden block mt-4"
+                    className="max-w-[90%] md:max-w-[80%] md:px-4 md:hidden block mt-4 border-gray-50 border-2"
                     width={800}
                     height={800}
                 />

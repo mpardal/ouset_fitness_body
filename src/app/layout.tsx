@@ -13,12 +13,12 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Ouest Fitness Body - Événement Sport et Fitness",
         description:
-            "Participez à l'événement Ouest Fitness Body : salon du fitness, concours sportifs et bien-être à Nantes.",
+            "Le salon du fitness de l'ouest français, découvrez le fitness 2025, venez dans une énergie avec des milliers de passionnés. Participez à l'évènement fitness à Nantes en Loire Atlantique dans le 44 du 12 au 14 septembre",
         url: "https://ouestfitnessbody.com",
         siteName: "Ouest Fitness Body",
         images: [
             {
-                url: "https://ouestfitnessbody.com/banniere-OFB.JPG", // URL de l'image
+                url: "https://ouestfitnessbody.com/OFB-banniere.png", // URL de l'image
                 width: 1200, // Dimensions recommandées pour Open Graph
                 height: 630,
                 alt: "Ouest Fitness Body - Événement Sport et Fitness",
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Ouest Fitness Body - Événement Sport et Fitness",
         description:
-            "Découvrez Ouest Fitness Body, le rendez-vous incontournable pour les passionnés de sport et de fitness à Nantes.",
-        images: ["https://ouestfitnessbody.com/banniere-OFB.JPG"], // URL de l'image pour Twitter
+            "Le salon du fitness de l'ouest français, découvrez le fitness 2025, venez dans une énergie avec des milliers de passionnés. Participez à l'évènement fitness à Nantes en Loire Atlantique dans le 44 du 12 au 14 septembre",
+        images: ["https://ouestfitnessbody.com/OFB-banniere.png"], // URL de l'image pour Twitter
         site: "@OuestFitnessBody", // Remplacez par votre compte Twitter
     },
     alternates: {

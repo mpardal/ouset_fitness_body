@@ -31,3 +31,7 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.leaflet-container {
+  z-index: 0 !important; /* S'assure que la carte est derrière les éléments comme le footer */
+}

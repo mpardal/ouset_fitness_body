@@ -13,18 +13,18 @@ const customIcon = new L.Icon({
 
 const MapComponent = () => {
     // Déclarez explicitement que `position` est un tuple avec deux éléments
-    const position: [number, number] = [47.222022, -1.641949]; // Coordonnées pour Nantes
+    const position: [number, number] = [47.252640, -1.658687]; // Coordonnées pour Nantes
 
     // Clé unique pour éviter les conflits de conteneur
     const mapKey = `${position[0]}-${position[1]}`;
 
     return (
         <MapContainer
-            key={mapKey} // Ajoutez une clé basée sur les coordonnées
+            key={mapKey}
             center={position}
             zoom={15}
             scrollWheelZoom={false}
-            style={{ height: "100%", width: "70%" }}
+            style={{ height: "500px", width: "70%" }} // Hauteur fixe pour éviter les conflits
         >
             <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -32,7 +32,8 @@ const MapComponent = () => {
             />
             <Marker position={position} icon={customIcon}>
                 <Popup>
-                    3 impasse du Bourrelier, 44800 Saint-Herblain <br /> Ouest Fitness & Body Expo
+                    Adresse
+                    2 Chemin des Cyprès, 44880 Sautron, France <br /> Ouest Fitness & Body Expo
                 </Popup>
             </Marker>
         </MapContainer>

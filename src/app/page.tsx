@@ -48,9 +48,10 @@ const Home = () => {
                 <div className="hidden md:flex w-full h-[500px] flex-row items-center mt-6">
                     <div className="text-center mx-auto font-extrabold text-2xl">
                         <p className="underline italic">Adresse :</p>
-                        <p>Le Sporting</p>
-                        <p>3 impasse du Bourrelier</p>
-                        <p>44800 Saint-Herblain</p>
+                        <p>Le Smile</p>
+                        <p>2 chemin des cyprès</p>
+                        <p>Route de Brimberne</p>
+                        <p>44880 Sautron</p>
                     </div>
                     <MapComponent/>
                 </div>
@@ -78,14 +79,15 @@ const Home = () => {
                 <div className="text-center mx-auto font-extrabold text-2xl my-6 text-white">
                     <p className="underline italic mb-4">Adresse :</p>
                     <a
-                        href="https://www.google.com/maps?q=47.222022,-1.641949"
+                        href="https://www.google.com/maps?q=47.252640,-1.658687"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-white no-underline"
                     >
-                        <p>Le Sporting</p>
-                        <p>3 impasse du Bourrelier</p>
-                        <p>44800 Saint-Herblain</p>
+                        <p>Le Smile</p>
+                        <p>2 chemin des cyprès</p>
+                        <p>Route de Brimberne</p>
+                        <p>44880 Sautron</p>
                     </a>
                 </div>
             </div>

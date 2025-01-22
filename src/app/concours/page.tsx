@@ -4,7 +4,7 @@ import {IMAGES} from "@/constants/images";
 export default function ConcoursPage() {
     return (
         <div className="flex flex-col items-center justify-center">
-                <h1 className="text-3xl font-bold py-4 text-white text-center">Les concours ludique</h1>
+                <h1 className="text-3xl font-bold py-4 text-white text-center">Concours & challenges</h1>
                 <ConcoursSection
                     imageUrl={IMAGES.bras_de_fer}
                     title="Bras de Fer"
@@ -24,8 +24,8 @@ export default function ConcoursPage() {
                 Ne manquez pas cet événement sportif unique, et inscrivez-vous dès maintenant pour tenter votre chance ! ✨"
                 />
                 <ConcoursSection
-                    imageUrl={IMAGES.souleve_de_terre}
-                    title="Soulevé de terre"
+                    imageUrl={IMAGES.powerlifting}
+                    title="Powerlifting"
                     textPosition="left"
                     text="Rejoignez notre défi et testez votre force dans une ambiance motivante et conviviale !
                 Que vous soyez débutant ou expert, tout le monde peut participer et se surpasser ! 🎉"

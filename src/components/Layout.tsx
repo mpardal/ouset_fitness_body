@@ -70,7 +70,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                         <li className="border-l border-gray-300 px-4">
                             <Link href="/concours" className="flex gap-2 items-center hover:text-[#55bcf9]">
                                 <TrophyIcon className="h-5 w-5"/>
-                                <span>Concours ludique</span>
+                                <span>Concours & challenges</span>
                             </Link>
                         </li>
                         <li className="border-l border-gray-300 px-4">

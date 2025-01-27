@@ -97,7 +97,7 @@ export default function ExposantsPage() {
             </div>
 
             {/* Liste des exposants */}
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 md:gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 md:gap-4 gap-2">
                 {filteredExposants.length > 0 ? (
                     filteredExposants.map((exposant) => (
                         <Link href={`/exposants/${exposant.slug}`} key={exposant.id}>

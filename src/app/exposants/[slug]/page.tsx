@@ -73,7 +73,7 @@ export default function ExposantPage() {
                     width={200}
                     height={200}
                 />
-                <p className="mt-2 text-gray-700 text-center">{exposant.description}</p>
+                <p className="mt-2 text-gray-300 text-center">{exposant.description}</p>
             </div>
         </div>
     );

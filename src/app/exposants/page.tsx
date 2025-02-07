@@ -114,7 +114,7 @@ export default function ExposantsPage() {
                                     />
                                 </div>
                                 <p className="mt-4 text-lg font-bold">{exposant.name}</p>
-                                <p className="text-gray-600 text-sm">{exposant.description}</p>
+                                <p className="text-gray-300 text-sm">{exposant.description}</p>
                             </div>
                         </Link>
                     ))

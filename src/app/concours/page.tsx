@@ -6,6 +6,15 @@ export default function ConcoursPage() {
         <div className="flex flex-col items-center justify-center">
                 <h1 className="text-3xl font-bold py-4 text-white text-center">Concours & challenges</h1>
                 <ConcoursSection
+                    imageUrl={IMAGES.handstandWalk}
+                    title="Handstand Walk"
+                    textPosition="right"
+                    text="Défiez la gravité et testez votre équilibre dans une épreuve spectaculaire et amusante.
+                    Que vous soyez débutant ou expert en acrobaties, venez relever ce défi à la verticale ! 🤸‍♂️"
+                    text2="💪️ Préparez-vous à marcher sur les mains et à repousser vos limites dans une ambiance
+                    dynamique et conviviale. Inscrivez-vous sans tarder, les places sont limitées ! 🔥"
+                />
+                <ConcoursSection
                     imageUrl={IMAGES.bras_de_fer}
                     title="Bras de Fer"
                     textPosition="left"
